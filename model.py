@@ -1,12 +1,13 @@
-import pandas as pd
-from sklearn.tree import DecisionTreeClassifier
+import pandas as pd # panda library uses mathematics
+from sklearn.tree import DecisionTreeClassifier # it helps to predict and program algorithm
 from sklearn.model_selection import train_test_split
-
+ # above are the libraries by which we can help our model to predict disease
+ # for that time it will store data and tell disease then again it will get reset
 class DiseaseModel:
     def __init__(self, dataset_path):
         self.dataset_path = dataset_path
         self.model = DecisionTreeClassifier()
-        self.train_model()
+        self.train_model() # model will get self trained
 
     def train_model(self):
         # Load dataset
@@ -28,8 +29,10 @@ class DiseaseModel:
         self.accuracy = self.model.score(X_test, y_test)
 
     def predict(self, symptoms):
+        # take inpur from the user and predict disease
         prediction = self.model.predict([symptoms])
         return prediction[0]
 
     def get_accuracy(self):
-        return self.accuracy
+        return self.accuracy # retirn model accuracy
+    # this is for training the model from which our model will work amd run according to that
